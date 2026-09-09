@@ -8,19 +8,23 @@ This document is an implementation brief for Claude Code. Build the product desc
 
 ## Owner profile
 
-- Name: Shikhar Sharma
-- Role: AI Engineer
-- Location: India
-- Email: b1uxo@protonmail.com
-- X: `@b1uxo` — https://x.com/b1uxo
-- GitHub: https://github.com/bluxo1
+- Name: `[PORTFOLIO_OWNER_NAME]`
+- Role: `[PORTFOLIO_OWNER_ROLE]`
+- Location: `[PORTFOLIO_OWNER_LOCATION]`
+- Email: `[PORTFOLIO_OWNER_EMAIL]`
+- X/social: `[PORTFOLIO_OWNER_SOCIAL_LINKS]`
+- GitHub: `[PORTFOLIO_OWNER_GITHUB_URL]`
 
 ### Initial projects
 
-1. **Regressa** — https://github.com/bluxo1/Regressa
-2. **ML-Based Network Intrusion Detection System** — https://github.com/bluxo1/Network-Intrusion-Detection-System
+1. **[PROJECT_ONE_NAME]** — `[PROJECT_ONE_URL]`
+2. **[PROJECT_TWO_NAME]** — `[PROJECT_TWO_URL]`
 
 Use these links as the initial featured projects. Claude Code must inspect the repositories before writing detailed descriptions and must not invent results, metrics, screenshots, or technologies.
+
+## Rights notice
+
+Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts are owned by their respective rights holders, including ATLUS and SEGA. All rights reserved. This portfolio concept is unofficial and not affiliated with or endorsed by those rights holders. Use official assets only with documented permission; otherwise use original alternatives.
 
 ## Goals
 
@@ -41,7 +45,7 @@ Use these links as the initial featured projects. Claude Code must inspect the r
 
 ### Home/menu
 
-- Full-viewport hero with an original or properly licensed Joker-inspired visual treatment. The requested Persona 5 Royal Joker imagery may be used only if Shikhar supplies assets with permission suitable for the intended deployment; otherwise use original, non-infringing visual art with similar dramatic red/black comic-book energy.
+- Full-viewport hero with an original or properly licensed Joker-inspired visual treatment. Requested Persona 5 Royal Joker imagery may be used only if the owner supplies assets with permission suitable for the intended deployment; otherwise use original, non-infringing visual art with similar dramatic red/black comic-book energy.
 - Identity block: name, role, location, and one-sentence value proposition.
 - Main menu entries: Projects, Skills, About, Resume, Contact, and Socials.
 - Menu selection works with arrow keys, Enter/Space, pointer, and touch.

@@ -2,7 +2,7 @@
 
 ## Project
 
-Build a portfolio website for **Shikhar Sharma**, an **AI Engineer** based in **India**.
+Build a portfolio website using the owner-provided identity and content. Personal identity details are intentionally omitted from this repository; use placeholders until the owner supplies them in the working session.
 
 Before making implementation decisions, read:
 
@@ -14,14 +14,7 @@ Before making implementation decisions, read:
 
 ## Owner content
 
-- Email: `b1uxo@protonmail.com`
-- X: `@b1uxo` — https://x.com/b1uxo
-- GitHub: https://github.com/bluxo1
-- Featured projects:
-  - Regressa: https://github.com/bluxo1/Regressa
-  - ML-Based Network Intrusion Detection System: https://github.com/bluxo1/Network-Intrusion-Detection-System
-
-Inspect the project repositories before writing descriptions. Never invent metrics, technologies, employers, education, screenshots, or achievements.
+Use placeholders for name, role, location, email, social links, and project URLs until the owner supplies them. Never invent metrics, technologies, employers, education, screenshots, or achievements.
 
 ## Implementation rules
 
@@ -32,6 +25,7 @@ Inspect the project repositories before writing descriptions. Never invent metri
 - Read and follow the architecture and design documents before creating components.
 - Use original or properly licensed assets only.
 - The requested Persona 5 Royal/Joker images, sound effects, and fonts must not be downloaded, bundled, or deployed without documented permission. If permission is unavailable, use the original masked-vigilante/comic-book fallback direction specified in `docs/design.md`.
+- Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts belong to their respective rights holders, including ATLUS and SEGA. All rights reserved. This is an unofficial, non-affiliated portfolio concept.
 - Do not expose secrets or private API keys in client code.
 - Do not add dependencies without explaining why they are needed.
 - Do not overwrite user-authored files or delete assets without asking first.

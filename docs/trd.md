@@ -18,11 +18,8 @@ Do not add a dependency when native browser APIs and a small typed utility are s
 
 ## Project-specific content
 
-- Owner: Shikhar Sharma, AI Engineer, India.
-- Email: `b1uxo@protonmail.com`.
-- X: `@b1uxo` at https://x.com/b1uxo.
-- GitHub: https://github.com/bluxo1.
-- Initial projects: https://github.com/bluxo1/Regressa and https://github.com/bluxo1/Network-Intrusion-Detection-System.
+- Owner identity: use `[PORTFOLIO_OWNER_*]` placeholders until supplied in the working session.
+- Initial projects: use `[PROJECT_*]` placeholders until verified repository URLs are supplied.
 - Inspect each repository before writing project metadata; use verified facts only.
 
 ## Runtime requirements
@@ -58,6 +55,7 @@ Do not add a dependency when native browser APIs and a small typed utility are s
 - Use poster images for video and disable motion/audio when reduced motion is requested.
 - Missing optional images must render a designed fallback, not a broken image.
 - Requested Persona 5 Royal/Joker images, sound effects, and fonts are third-party copyrighted assets. Do not download, commit, bundle, or deploy them without documented permission/license. Support a replaceable asset manifest so licensed assets can be supplied by the owner, and provide original fallback assets for development and deployment.
+- Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts belong to their respective rights holders, including ATLUS and SEGA. All rights reserved; the portfolio is unofficial and non-affiliated.
 
 ### Motion and audio
 

@@ -6,11 +6,13 @@ Create a high-energy, cinematic portfolio interface that feels like entering a p
 
 ## Owner identity
 
-Present **Shikhar Sharma** as an **AI Engineer** based in **India**. The first content should feature Regressa and the ML-Based Network Intrusion Detection System, with GitHub links from `https://github.com/bluxo1`. Contact: `b1uxo@protonmail.com`; X: `@b1uxo`.
+Present the owner-provided name, role, location, projects, and contact links. Use clearly marked placeholders until those details are supplied in the working session.
 
 ## Requested character direction and rights gate
 
-The requested direction is Joker from Persona 5 Royal across the imagery, sound effects, and typography. Treat this as a gated asset requirement: only use files Shikhar provides with permission/license for the deployment. Do not fetch or redistribute official game artwork, music/sound effects, logos, or proprietary fonts. If rights are unavailable, create an original masked-vigilante/comic-book direction using a red/black palette, sharp diagonals, halftone texture, gloves/masquerade motifs, and an original type treatment without using Persona names or copied assets.
+The requested direction is Joker from Persona 5 Royal across the imagery, sound effects, and typography. Treat this as a gated asset requirement: only use files the owner provides with permission/license for the deployment. Do not fetch or redistribute official game artwork, music/sound effects, logos, or proprietary fonts. If rights are unavailable, create an original masked-vigilante/comic-book direction using a red/black palette, sharp diagonals, halftone texture, gloves/masquerade motifs, and an original type treatment without using Persona names or copied assets.
+
+Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts belong to their respective rights holders, including ATLUS and SEGA. All rights reserved. The portfolio must be presented as unofficial and non-affiliated.
 
 ## Visual system
 

@@ -4,11 +4,8 @@ This is the execution order for Claude Code. Each phase should end with a workin
 
 ## Required owner inputs
 
-- Shikhar Sharma — AI Engineer — India.
-- Email: `b1uxo@protonmail.com`.
-- X: `@b1uxo`.
-- GitHub: https://github.com/bluxo1.
-- Featured projects: https://github.com/bluxo1/Regressa and https://github.com/bluxo1/Network-Intrusion-Detection-System.
+- Owner identity and contact details: supply privately at implementation time.
+- Featured projects and repository URLs: supply and verify at implementation time.
 - Persona 5 Royal/Joker assets only when the owner has suitable permission/license; otherwise use original fallback art, sound, and typography.
 
 ## Phase 0 — Confirm inputs and constraints
@@ -106,5 +103,6 @@ Exit criteria: production URL works from a fresh browser, HTTPS is active, deep 
 - Work phase-by-phase and show the user what changed before moving on.
 - Use existing assets only when their license and provenance are clear.
 - Ask for missing personal content only when the placeholder would materially affect implementation; otherwise proceed with clearly marked placeholders.
+- Include the unofficial Persona/ATLUS rights notice in the public site footer when the design uses the requested inspiration.
 - Run the smallest relevant validation after each change, then the full quality gate before handoff.
 - Do not add extra project documentation files beyond the requested documentation set unless the user explicitly asks for them.

@@ -6,7 +6,7 @@ The application is a static React/TypeScript single-page app with route-level sc
 
 ## Owner and initial content
 
-The site represents Shikhar Sharma, an AI Engineer based in India. Contact is `b1uxo@protonmail.com`; X is `@b1uxo`; GitHub is https://github.com/bluxo1. The first featured projects are Regressa and ML-Based Network Intrusion Detection System, linked from the PRD. Project descriptions must be verified from those repositories.
+The site represents the owner supplied at implementation time. Keep identity, contact, social, and project URL data in typed content modules and use placeholders until verified content is supplied. Project descriptions must be verified from their source repositories.
 
 ## High-level flow
 

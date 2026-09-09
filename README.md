@@ -1,22 +1,17 @@
-# Shikhar Sharma — AI Engineer Portfolio
+# Portfolio Project Specification
 
-Portfolio project specification and implementation workspace for Shikhar Sharma, an AI Engineer based in India.
+Portfolio project specification and implementation workspace.
 
 The planned website is an original, menu-driven, cinematic portfolio inspired by dramatic game interfaces. It combines a strong visual identity with clear project case studies, keyboard navigation, responsive layouts, accessibility, and reduced-motion support.
 
-## Owner
+## Owner content
 
-- Name: Shikhar Sharma
-- Role: AI Engineer
-- Location: India
-- Email: [b1uxo@protonmail.com](mailto:b1uxo@protonmail.com)
-- GitHub: [bluxo1](https://github.com/bluxo1)
-- X: [@b1uxo](https://x.com/b1uxo)
+Personal identity and contact details are intentionally omitted from this public specification. Claude Code should use placeholders until the owner supplies content privately.
 
 ## Featured projects
 
-- [Regressa](https://github.com/bluxo1/Regressa)
-- [ML-Based Network Intrusion Detection System](https://github.com/bluxo1/Network-Intrusion-Detection-System)
+- `[PROJECT_ONE]` — `[PROJECT_ONE_URL]`
+- `[PROJECT_TWO]` — `[PROJECT_TWO_URL]`
 
 Project descriptions must be verified from the source repositories before being added to the portfolio. Do not invent metrics, technologies, screenshots, or achievements.
 
@@ -43,7 +38,9 @@ The `docs/` folder contains the implementation specifications:
 
 ## Asset and copyright policy
 
-The requested visual direction references Joker from Persona 5 Royal. Official character artwork, music, sound effects, logos, and proprietary fonts must not be downloaded, bundled, or deployed without suitable permission or a license covering the intended use.
+The requested visual direction references Joker from Persona 5 Royal. Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts are the property of their respective rights holders, including ATLUS and SEGA. All rights reserved to the respective rights holders. This project is an unofficial, non-affiliated portfolio concept and must not imply endorsement.
+
+Official assets must not be downloaded, bundled, or deployed without suitable permission or a license covering the intended use. If permission is unavailable, use original, non-infringing alternatives with a dramatic comic-book direction.
 
 If licensed assets are not supplied, use original masked-vigilante/comic-book artwork, sound, and typography with a dramatic red/black visual direction. Record the provenance and license status of every asset.
 
