@@ -25,7 +25,7 @@ export const site: SiteConfig = {
     'Most at home in Python; also write TypeScript.'
   ],
   email: 'mailto:b1uxo@protonmail.com',
-  resumeLabel: '[ADD RESUME PDF]'
+  resumeLabel: 'Request the full CV'
 }
 
 export const socials: SocialLink[] = [
