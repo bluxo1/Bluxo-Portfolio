@@ -6,7 +6,7 @@ The planned website is an original, menu-driven, cinematic portfolio inspired by
 
 ## Owner content
 
-Personal identity and contact details are intentionally omitted from this public specification. Claude Code should use placeholders until the owner supplies content privately.
+Personal identity and contact details are intentionally omitted from this public specification. Codex should use placeholders until the owner supplies content privately.
 
 ## Featured projects
 
@@ -23,9 +23,9 @@ The `docs/` folder contains the implementation specifications:
 - `trd.md` — technical requirements
 - `architecture.md` — application architecture and data flow
 - `design.md` — visual and interaction system
-- `phases.md` — Claude Code implementation sequence
+- `phases.md` — Codex implementation sequence
 
-`CLAUDE.md` is the primary instruction file for Claude Code. Read it and all five documents in `docs/` before implementing the website.
+`AGENTS.md` is the primary instruction file for Codex. Read it and all five documents in `docs/` before implementing the website.
 
 ## Planned stack
 

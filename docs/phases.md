@@ -1,6 +1,6 @@
 # Implementation Phases
 
-This is the execution order for Claude Code. Each phase should end with a working build and a short verification report. Do not begin a later phase while an earlier phase has broken tests or unresolved build errors.
+This is the execution order for Codex. Each phase should end with a working build and a short verification report. Do not begin a later phase while an earlier phase has broken tests or unresolved build errors.
 
 ## Required owner inputs
 
@@ -98,7 +98,7 @@ Tasks:
 
 Exit criteria: production URL works from a fresh browser, HTTPS is active, deep links load, and the owner can update content without changing component logic.
 
-## Claude Code operating rules
+## Codex operating rules
 
 - Work phase-by-phase and show the user what changed before moving on.
 - Use existing assets only when their license and provenance are clear.

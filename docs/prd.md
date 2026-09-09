@@ -4,7 +4,7 @@
 
 An immersive, responsive personal portfolio website inspired by the dramatic menu-driven presentation of Persona-style games. The experience should feel like a polished interactive interface while remaining clear, fast, accessible, and useful to recruiters, clients, and collaborators.
 
-This document is an implementation brief for Claude Code. Build the product described here, but use original branding, copy, artwork, audio, icons, and motion assets. Do not reproduce copyrighted game assets or logos.
+This document is an implementation brief for Codex. Build the product described here, but use original branding, copy, artwork, audio, icons, and motion assets. Do not reproduce copyrighted game assets or logos.
 
 ## Owner profile
 
@@ -20,7 +20,7 @@ This document is an implementation brief for Claude Code. Build the product desc
 1. **[PROJECT_ONE_NAME]** — `[PROJECT_ONE_URL]`
 2. **[PROJECT_TWO_NAME]** — `[PROJECT_TWO_URL]`
 
-Use these links as the initial featured projects. Claude Code must inspect the repositories before writing detailed descriptions and must not invent results, metrics, screenshots, or technologies.
+Use these links as the initial featured projects. Codex must inspect the repositories before writing detailed descriptions and must not invent results, metrics, screenshots, or technologies.
 
 ## Rights notice
 

@@ -97,7 +97,7 @@ Do not add a dependency when native browser APIs and a small typed utility are s
 - Smoke tests cover loading every route, keyboard selection, Escape/back behavior, and mobile layout.
 - Production build is served locally and inspected at desktop and mobile widths.
 
-## Claude Code implementation rules
+## Codex implementation rules
 
 1. Inspect the existing repository before creating files.
 2. Implement in small phases and run the relevant checks after each phase.
