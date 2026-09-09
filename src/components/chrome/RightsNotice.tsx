@@ -1,3 +1,3 @@
 export function RightsNotice() {
-  return <p className="rights-notice">Persona 5 Royal, Joker, and related marks belong to ATLUS / SEGA. This portfolio is unofficial, non-affiliated, and uses no official ATLUS / SEGA assets.</p>
+  return <p className="rights-notice">© 2026 Shikhar Sharma. Built with React, TypeScript, and Vite. All project data reflects public repository records.</p>
 }
