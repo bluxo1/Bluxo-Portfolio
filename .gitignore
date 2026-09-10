@@ -4,4 +4,10 @@ dist/
 vite.config.js
 vite.config.d.ts
 .codex-remote-attachments/
-assets/
+assets/*
+!assets/cursors/
+!assets/cursors/*.png
+!assets/menus/
+!assets/menus/*.jpg
+!assets/sfx/
+!assets/sfx/select.mp3
