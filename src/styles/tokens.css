@@ -4,6 +4,7 @@
   --panel: #151515;
   --panel-2: #1f1f22;
   --text: #f6f4ef;
+  --text-soft: #ded9d1;
   --muted: #9c9c9c;
   --line: rgba(246,244,239,.15);
   --accent: #e60012;
@@ -13,4 +14,8 @@
   --shadow: 0 20px 60px rgba(0,0,0,.6);
   --radius: 0px;
   --ease: cubic-bezier(.2,.8,.2,1);
+  /* Swap --font-display to change every headline, wordmark and menu row at once.
+     'P5 Display' is the previous face (Arial Bold Italic) kept as the fallback. */
+  --font-display: 'Titan One', 'P5 Display', 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'P5 Body', Arial, Helvetica, sans-serif;
 }
