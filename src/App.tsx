@@ -2,7 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HomeScreen } from './screens/HomeScreen'
 import { AboutScreen, ContactScreen, NotFoundScreen, ProjectDetailScreen, ProjectsScreen, ResumeScreen, SkillsScreen, SocialsScreen } from './screens/ContentScreens'
 import { CursorSprite } from './components/chrome/CursorSprite'
+import { RouteWipe } from './components/motion/RouteWipe'
 import '@fontsource-variable/inter/wght.css'
+import '@fontsource/titan-one/latin-400.css'
 import '@fontsource/barlow-condensed/latin-400.css'
 import '@fontsource/barlow-condensed/latin-600.css'
 import '@fontsource/barlow-condensed/latin-700.css'
@@ -14,6 +16,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <CursorSprite />
+      <RouteWipe />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/projects" element={<ProjectsScreen />} />
