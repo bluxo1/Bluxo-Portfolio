@@ -1,53 +1,73 @@
 # Shikhar Sharma — Portfolio
 
-Portfolio project specification and implementation workspace.
+An original, menu-driven portfolio for Shikhar Sharma, an AI Engineer based in India. The site uses a cinematic red-and-black interface while keeping the content semantic, keyboard-accessible, responsive, and usable with reduced motion.
 
-The planned website is an original, menu-driven, cinematic portfolio inspired by dramatic game interfaces. It combines a strong visual identity with clear project case studies, keyboard navigation, responsive layouts, accessibility, and reduced-motion support.
+## Run locally
 
-## Owner content
+Requirements: Node.js LTS and npm.
 
-The portfolio owner is Shikhar Sharma, an AI Engineer based in India. Contact and social details are stored in `src/data/site.ts`.
+```bash
+npm install
+npm run dev
+```
 
-## Featured projects
+Useful commands:
 
-- [Regressa](https://github.com/bluxo1/Regressa)
-- [ML-Based Network Intrusion Detection System](https://github.com/bluxo1/Network-Intrusion-Detection-System)
+```bash
+npm run lint    # TypeScript validation
+npm run test    # Vitest suite
+npm run build   # Production build
+npm run preview # Serve the production build locally
+```
 
-Project descriptions must be verified from the source repositories before being added to the portfolio. Do not invent metrics, technologies, screenshots, or achievements.
+## Routes
 
-## Documentation
+- `/` — home and primary menu
+- `/projects` — featured projects
+- `/projects/:slug` — project case file
+- `/skills` — grouped skills
+- `/about` — profile and working approach
+- `/resume` — accessible credentials summary and CV request CTA
+- `/contact` — email contact
+- `/socials` — external links
 
-The `docs/` folder contains the implementation specifications:
+## Content model
+
+Portfolio content is kept in typed modules under `src/data/`:
+
+- `site.ts` — identity, biography, contact, and social links
+- `projects.ts` — project summaries, case-study details, stacks, and links
+- `skills.ts` — grouped skills
+
+Project descriptions and metrics should be based on the linked source repositories. Replace owner-supplied placeholders or contact details only with verified information.
+
+## Architecture
+
+The application is a React + TypeScript + Vite single-page app using React Router. Screens are composed from shared shell and chrome components under `src/components/`, with reusable hooks under `src/hooks/` and imported media exposed through `src/lib/assets.ts`.
+
+The visual system uses CSS tokens and custom CSS motion. It includes keyboard menu navigation, visible focus styles, responsive mobile navigation, reduced-motion handling, a custom cursor for fine pointers, and an optional interface sound effect.
+
+## Assets and rights
+
+The visual direction is original and is not affiliated with ATLUS, SEGA, or Persona 5 Royal. Do not add or deploy official game artwork, characters, logos, music, sound effects, or fonts without documented permission. Use original or properly licensed replacements and record provenance before adding assets.
+
+Local media lives in `assets/` and deployable static files live in `public/`. Keep generated files, temporary captures, and unlicensed font binaries out of commits.
+
+## Project documentation
+
+The implementation specifications are in `docs/`:
 
 - `prd.md` — product requirements
 - `trd.md` — technical requirements
-- `architecture.md` — application architecture and data flow
+- `architecture.md` — application architecture
 - `design.md` — visual and interaction system
-- `phases.md` — Codex implementation sequence
+- `phases.md` — implementation sequence
+- `AGENTS.md` — repository instructions for Codex
 
-`AGENTS.md` is the primary instruction file for Codex. Read it and all five documents in `docs/` before implementing the website.
+Read the five specifications and `docs/AGENTS.md` before making implementation changes.
 
-## Planned stack
+## Current limitations
 
-- React
-- TypeScript
-- Vite
-- React Router
-- Framer Motion or an equivalent transition layer
-- Typed, data-driven portfolio content
-
-## Asset and copyright / attribution notice
-
-Persona 5 Royal, Joker, and related names, characters, artwork, music, sound effects, logos, and fonts are owned by their respective rights holders, including ATLUS and SEGA. The official Persona 5 Royal site identifies the relevant marks and copyright as belonging to ATLUS / SEGA: <https://persona.atlus.com/p5r/?lang=en>.
-
-Attribution: `©ATLUS. ©SEGA. All rights reserved.` ATLUS, the ATLUS logo, and PERSONA 5 ROYAL are trademarks or registered trademarks of ATLUS Co., Ltd. or its affiliates; SEGA and the SEGA logo are trademarks or registered trademarks of SEGA CORPORATION or its affiliates.
-
-This notice is attribution only. It is not permission, a license, or an endorsement from ATLUS or SEGA. This portfolio is unofficial and non-affiliated, and the shipped implementation does not import or distribute official Persona 5 Royal/Joker images, video, sound effects, fonts, logos, or other proprietary assets.
-
-Official assets must not be downloaded, bundled, or deployed without suitable permission or a license covering the intended use. If permission is unavailable, use original, non-infringing alternatives with a dramatic comic-book direction.
-
-If licensed assets are not supplied, use original masked-vigilante/comic-book artwork, sound, and typography with a dramatic red/black visual direction. Record the provenance and license status of every asset. The site displays the same attribution and non-affiliation notice globally through the HUD.
-
-## Current status
-
-The Vite application is implemented. Run `npm install` and `npm run dev` to start it locally.
+- The resume screen provides an accessible summary and email CTA until an owner-supplied PDF is available.
+- Contact uses a `mailto:` fallback rather than a server-backed form.
+- The site is static-first and does not fetch remote repository data at runtime.
