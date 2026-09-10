@@ -34,22 +34,25 @@ export function MainMenu() {
   return (
     <nav className="main-menu" aria-label="Primary navigation" onKeyDown={onKeyDown}>
       <p className="menu-kicker">SELECT DESTINATION</p>
-      {menuItems.map((item, index) => (
-        <Link
-          ref={(el) => { refs.current[index] = el }}
-          className={`menu-item ${selected === index ? 'is-selected' : ''}`}
-          aria-current={location.pathname === item.path ? 'page' : undefined}
-          to={item.path}
-          key={item.path}
-          onMouseEnter={() => { setSelected(index); playSelect() }}
-          onFocus={() => setSelected(index)}
-          onClick={() => playSelect()}
-        >
-          <span className="menu-index">0{index + 1}</span>
-          <span>{item.label}</span>
-          <span className="menu-arrow" aria-hidden="true">↗</span>
-        </Link>
-      ))}
+      <div className="menu-list">
+        {menuItems.map((item, index) => (
+          <div className="menu-row" key={item.path} style={{ '--i': index } as React.CSSProperties}>
+            <Link
+              ref={(el) => { refs.current[index] = el }}
+              className={`menu-item ${selected === index ? 'is-selected' : ''}`}
+              aria-current={location.pathname === item.path ? 'page' : undefined}
+              to={item.path}
+              onMouseEnter={() => { setSelected(index); playSelect() }}
+              onFocus={() => setSelected(index)}
+              onClick={() => playSelect()}
+            >
+              <span className="menu-index">0{index + 1}</span>
+              <span className="menu-label">{item.label}</span>
+              <span className="menu-arrow" aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        ))}
+      </div>
       <p className="menu-hint">Arrow keys navigate <span>·</span> Enter selects</p>
     </nav>
   )

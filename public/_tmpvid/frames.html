@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>frames</title>
+<style>
+  html,body { margin:0; background:#111; }
+  #grid { display:grid; grid-template-columns:repeat(2,1fr); gap:4px; padding:4px; }
+  figure { margin:0; position:relative; }
+  canvas { width:100%; display:block; }
+  figcaption { position:absolute; left:4px; top:4px; color:#0f0; font:12px monospace; background:#000c; padding:1px 5px; }
+  video { position:fixed; width:2px; height:2px; opacity:.01; pointer-events:none; }
+</style>
+</head>
+<body>
+  <video id="v" muted preload="auto" playsinline></video>
+  <div id="grid"></div>
+  <script>
+    const v = document.getElementById('v'), grid = document.getElementById('grid');
+    window.load = (src) => new Promise((res, rej) => {
+      v.src = src;
+      v.addEventListener('loadeddata', () => res({ dur: v.duration, w: v.videoWidth, h: v.videoHeight }), { once: true });
+      v.addEventListener('error', () => rej('load error'), { once: true });
+    });
+    const seekTo = (time) => new Promise(r => {
+      const done = () => setTimeout(() => r(v.currentTime), 100);
+      v.addEventListener('seeked', done, { once: true });
+      v.currentTime = time;
+      setTimeout(() => { v.removeEventListener('seeked', done); r(v.currentTime); }, 5000);
+    });
+    window.clearGrid = () => { grid.innerHTML = ''; return 'cleared'; };
+    window.grab = async (times, scale) => {
+      scale = scale || 0.5;
+      const out = [];
+      for (const time of times) {
+        await seekTo(time);
+        const fig = document.createElement('figure');
+        const c = document.createElement('canvas');
+ c.width = Math.round(v.videoWidth * scale);
+        c.height = Math.round(v.videoHeight * scale);
+        c.getContext('2d').drawImage(v, 0, 0, c.width, c.height);
+ const cap = document.createElement('figcaption');
+        cap.textContent = v.currentTime.toFixed(1) + 's';
+ fig.appendChild(c); fig.appendChild(cap); grid.appendChild(fig);
+        out.push(+v.currentTime.toFixed(2));
+      }
+      return out.join(',');
+    };
+  </script>
+</body>
+</html>
