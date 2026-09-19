@@ -165,6 +165,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; font-style: nor
   position: relative;
   padding-top: 0;
 }
+/* Quick jolt on the active row's label only (toggled from MainMenu on selection). */
+.menu-label.shake { animation: menuShake .3s cubic-bezier(.36,.07,.19,.97); }
+@keyframes menuShake {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0); }
+  15% { transform: translate3d(-4px, 1px, 0) rotate(-1.2deg); }
+  30% { transform: translate3d(4px, -1px, 0) rotate(1deg); }
+  45% { transform: translate3d(-3px, 1px, 0) rotate(-.7deg); }
+  65% { transform: translate3d(2px, -1px, 0) rotate(.5deg); }
+  85% { transform: translate3d(-1px, 0, 0) rotate(-.2deg); }
+}
+@media (prefers-reduced-motion: reduce) { .menu-label.shake { animation: none; } }
 .menu-selector {
   position: absolute; z-index: 3; left: 0; top: 0; pointer-events: none;
   color: var(--accent); font: 800 1.7rem/1 'Barlow Condensed', sans-serif;

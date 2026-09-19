@@ -11,7 +11,7 @@ const screenBg: Record<string, string> = {
   '/skills': skillsBg,
 }
 
-export function ScreenShell({ title, eyebrow, children, back = true }: { title: string; eyebrow: string; children: ReactNode; back?: boolean }) {
+export function ScreenShell({ title, eyebrow, children, back = true, backTo = '/' }: { title: string; eyebrow: string; children: ReactNode; back?: boolean; backTo?: string }) {
   const heading = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
   const location = useLocation()
@@ -22,7 +22,7 @@ export function ScreenShell({ title, eyebrow, children, back = true }: { title: 
       <BgLayers image={bg} />
       <Hud />
       <main id="main-content" className="screen-content">
-        {back && <button className="back-button" onClick={() => navigate(-1)} aria-label="Go back">← back</button>}
+        {back && <button className="back-button" onClick={() => navigate(backTo)} aria-label="Go back">← back</button>}
         <p className="eyebrow">{eyebrow}</p>
         <h1 ref={heading} tabIndex={-1}>{title}</h1>
         {children}

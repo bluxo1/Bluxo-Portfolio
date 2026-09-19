@@ -29,6 +29,18 @@ export function MainMenu() {
     return () => { document.documentElement.style.removeProperty('--sel') }
   }, [selected])
 
+  /* A quick jolt on just the newly-active row's label — restart the animation by
+     forcing reflow, and skip the very first mount so it doesn't fire on load. */
+  const didMount = useRef(false)
+  useEffect(() => {
+    if (!didMount.current) { didMount.current = true; return }
+    const label = refs.current[selected]?.querySelector('.menu-label') as HTMLElement | null
+    if (!label) return
+    label.classList.remove('shake')
+    void label.offsetWidth
+    label.classList.add('shake')
+  }, [selected])
+
   /* Keep the marker attached to the active row, including after responsive reflow. */
   useLayoutEffect(() => {
     const updateSelector = () => {
