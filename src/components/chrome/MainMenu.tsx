@@ -5,8 +5,8 @@ import { useSelectSound } from '../../hooks/useSelectSound'
 
 /* Even stack with a subtle alternating tilt — same angle, mirrored side to side. */
 const tilts = [
-  { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 },
-  { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 }
+  { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 },
+  { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 }
 ]
 
 export function MainMenu() {
