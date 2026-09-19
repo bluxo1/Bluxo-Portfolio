@@ -103,6 +103,7 @@ body.cursor-on * { cursor: none !important; }
   background-repeat: no-repeat; background-size: auto 48px;
   margin: -3px 0 0 -4px;
   will-change: transform;
+  transition: opacity .18s ease;
 }
 
 /* ── home screen ───────────────────────────────────────────── */

@@ -4,6 +4,7 @@ export function useCursorSprite() {
   const cursorRef = useRef<HTMLDivElement>(null)
   const pos = useRef({ x: -100, y: -100 })
   const [isLink, setIsLink] = useState(false)
+  const [hidden, setHidden] = useState(true)
 
   useEffect(() => {
     const fine = window.matchMedia('(pointer: fine)')
@@ -17,9 +18,17 @@ export function useCursorSprite() {
 
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY }
+      setHidden(false)
       const el = document.elementFromPoint(e.clientX, e.clientY)
       setIsLink(!!el?.closest('a, button, [role="button"]'))
     }
+
+    /* Hide when the pointer leaves the viewport for browser chrome, another
+       window, or dev tools — otherwise the sprite freezes mid-page. */
+    const onLeave = (e: MouseEvent) => {
+      if (!e.relatedTarget && !(e as MouseEvent & { toElement?: Node }).toElement) setHidden(true)
+    }
+    const hide = () => setHidden(true)
 
     const tick = (ts: number) => {
       const el = cursorRef.current
@@ -35,14 +44,19 @@ export function useCursorSprite() {
     }
 
     window.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseleave', onLeave)
+    window.addEventListener('blur', hide)
+    document.addEventListener('visibilitychange', () => { if (document.hidden) setHidden(true) })
     rafId = requestAnimationFrame(tick)
 
     return () => {
       document.body.classList.remove('cursor-on')
       window.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseleave', onLeave)
+      window.removeEventListener('blur', hide)
       cancelAnimationFrame(rafId)
     }
   }, [])
 
-  return { cursorRef, isLink }
+  return { cursorRef, isLink, hidden }
 }
