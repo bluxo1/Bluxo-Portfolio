@@ -10,6 +10,7 @@ Live at **[b1uxo.vercel.app](https://b1uxo.vercel.app)**.
 - **Vite** + **React Router** — fast builds and client-side routing
 - **Vitest** with Testing Library and jsdom — unit and interaction tests
 - **CSS custom properties** — a token layer (`tokens.css`) drives every color, font, and accent
+- **Vercel Analytics** + **Speed Insights** — privacy-light traffic and performance metrics in production
 
 ## Run locally
 
@@ -39,7 +40,7 @@ The site deploys to Vercel from the `main` branch. Because routing is client-sid
 | Route | Screen |
 | --- | --- |
 | `/` | Home screen and primary menu |
-| `/projects` | Featured projects |
+| `/projects` | Featured work, with secondary tools below |
 | `/projects/:slug` | Project case file |
 | `/skills` | Grouped skills |
 | `/about` | Profile and working approach |
@@ -57,6 +58,8 @@ Portfolio content lives in typed modules under `src/data/`, kept separate from p
 - `projects.ts` — project summaries, case-study details, stacks, and source links
 - `skills.ts` — grouped skills
 - `experience.ts` — experience structure and owner-supplied placeholders
+
+The work currently spans three featured builds — [Regressa](https://github.com/bluxo1/Regressa) (prompt evaluation and regression testing), an [ML network intrusion detection system](https://github.com/bluxo1/Network-Intrusion-Detection-System), and [Axiom-RAG](https://github.com/bluxo1/Axiom-RAG) (a citation-grounded RAG agent) — alongside smaller desktop-integration tools and this site itself.
 
 > Project descriptions and metrics must be grounded in the linked source repositories. Do not invent employers, education, achievements, metrics, or project details. Replace placeholders only with verified information supplied by the owner.
 
