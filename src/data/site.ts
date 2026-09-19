@@ -30,6 +30,7 @@ export const site: SiteConfig = {
 
 export const socials: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/bluxo1', note: 'Code, experiments, and source' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/b1uxo', note: 'Experience and background' },
   { label: 'X', href: 'https://x.com/b1uxo', note: 'Updates and technical notes' },
   { label: 'Email', href: site.email, note: 'Start a conversation' }
 ]
