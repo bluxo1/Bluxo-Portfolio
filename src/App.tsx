@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { HomeScreen } from './screens/HomeScreen'
 import { AboutScreen, ContactScreen, NotFoundScreen, ProjectDetailScreen, ProjectsScreen, ResumeScreen, SkillsScreen, SocialsScreen } from './screens/ContentScreens'
 import { CursorSprite } from './components/chrome/CursorSprite'
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/socials" element={<SocialsScreen />} />
         <Route path="*" element={<NotFoundScreen />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   )
 }
