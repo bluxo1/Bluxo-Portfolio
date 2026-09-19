@@ -3,10 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { menuItems } from '../../lib/routes'
 import { useSelectSound } from '../../hooks/useSelectSound'
 
-/* Hand-placed tilts so no two rows share an angle — the ragged, pasted-on stack. */
+/* Even stack with a subtle alternating tilt — same angle, mirrored side to side. */
 const tilts = [
-  { rot: '-4.2deg', x: 0 }, { rot: '2.6deg', x: 27 }, { rot: '-5.6deg', x: 9 },
-  { rot: '1.4deg', x: 39 }, { rot: '-2.8deg', x: 17 }, { rot: '3.7deg', x: 45 }
+  { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 },
+  { rot: '2deg', x: 0 }, { rot: '-2deg', x: 0 }, { rot: '2deg', x: 0 }
 ]
 
 export function MainMenu() {
