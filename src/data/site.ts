@@ -15,7 +15,7 @@ export const site: SiteConfig = {
   name: 'Shikhar Sharma',
   role: 'AI Engineer',
   location: 'India',
-  tagline: 'I build intelligent systems that make complex signals easier to understand.',
+  tagline: 'To become a star, you must burn.',
   bio: "I work on both halves of the problem. On one side that's deep learning — training and tuning models in PyTorch and TensorFlow. On the other it's everything that has to exist before a model is useful to anyone: the API in front of it, the frontend around it, the database under it, and the network between them.",
   aboutPoints: [
     'Training models in PyTorch and TensorFlow, wrangling data with NumPy and Pandas.',

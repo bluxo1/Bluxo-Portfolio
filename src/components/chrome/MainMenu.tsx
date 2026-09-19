@@ -46,24 +46,33 @@ export function MainMenu() {
     return () => window.removeEventListener('resize', updateSelector)
   }, [selected])
 
-  const onKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-      event.preventDefault()
-      const direction = event.key === 'ArrowDown' ? 1 : -1
-      const next = (selected + direction + menuItems.length) % menuItems.length
-      setSelected(next)
-      refs.current[next]?.focus()
-      playSelect()
+  /* Arrow keys drive selection from anywhere on the home screen; Enter opens the
+     active route. Once a row itself has focus, its own activation handles Enter. */
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault()
+        const direction = event.key === 'ArrowDown' ? 1 : -1
+        setSelected((prev) => {
+          const next = (prev + direction + menuItems.length) % menuItems.length
+          refs.current[next]?.focus()
+          return next
+        })
+        playSelect()
+      } else if (event.key === 'Enter') {
+        const active = document.activeElement
+        if (active && refs.current.includes(active as HTMLAnchorElement)) return
+        event.preventDefault()
+        playSelect()
+        navigate(menuItems[selected].path)
+      }
     }
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      playSelect()
-      navigate(menuItems[selected].path)
-    }
-  }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [selected, navigate, playSelect])
 
   return (
-    <nav className="main-menu" aria-label="Primary navigation" onKeyDown={onKeyDown}>
+    <nav className="main-menu" aria-label="Primary navigation">
       <p className="menu-kicker">SELECT DESTINATION</p>
       <div className="menu-list" ref={listRef}>
         <span className="menu-selector" aria-hidden="true" style={selectorStyle}>↗</span>
