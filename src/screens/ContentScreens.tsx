@@ -5,7 +5,22 @@ import { projects } from '../data/projects'
 import { skillGroups } from '../data/skills'
 import { site, socials } from '../data/site'
 
-export function ProjectsScreen() { return <ScreenShell title="Selected work" eyebrow="02 / portfolio"><p className="lede">Two projects, both live in public repositories. The first is a prompt evaluation and regression-testing framework; the second a machine-learning intrusion detection system with a Flask front-end. Each has a case file with the problem, the solution, and what the source reports.</p><div className="project-grid">{projects.map((project) => <ProjectCard project={project} key={project.slug} />)}</div></ScreenShell> }
+export function ProjectsScreen() {
+  const featured = projects.filter((project) => project.featured)
+  const minor = projects.filter((project) => !project.featured)
+  return (
+    <ScreenShell title="Selected work" eyebrow="02 / portfolio">
+      <p className="lede">Featured work in public repositories — a prompt evaluation framework, a machine-learning intrusion detection system, and a citation-grounded RAG agent. Each has a case file with the problem, the solution, and what the source reports. Smaller tools and integrations follow below.</p>
+      <div className="project-grid">{featured.map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
+      {minor.length > 0 && (
+        <>
+          <h2 className="section-heading">More work</h2>
+          <div className="project-grid minor">{minor.map((project) => <ProjectCard project={project} minor key={project.slug} />)}</div>
+        </>
+      )}
+    </ScreenShell>
+  )
+}
 
 export function ProjectDetailScreen() { const { slug } = useParams(); const project = projects.find((item) => item.slug === slug); if (!project) return <ScreenShell title="File not found" eyebrow="404"><p className="lede">That project record does not exist.</p><Link className="button-link" to="/projects">Return to projects</Link></ScreenShell>; return <ScreenShell title={project.name} eyebrow={`${project.category} / case file`} backTo="/projects"><div className="detail-grid"><section className="detail-lead"><div className="project-art large" aria-hidden="true"><span className="art-code">CASE</span><span className="art-shape" /></div><p className="lede">{project.summary}</p><p className="result-callout"><span>RESULT</span>{project.result}</p><a className="button-link" href={project.url} target="_blank" rel="noreferrer">View source / demo ↗</a></section><dl className="detail-facts"><div><dt>Problem</dt><dd>{project.problem}</dd></div><div><dt>Solution</dt><dd>{project.solution}</dd></div><div><dt>Contribution</dt><dd>{project.contribution}</dd></div><div><dt>Stack</dt><dd>{project.stack.join(' · ')}</dd></div></dl></div></ScreenShell> }
 
