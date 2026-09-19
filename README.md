@@ -1,13 +1,15 @@
 # Shikhar Sharma — Portfolio
 
-A menu-driven portfolio for Shikhar Sharma, an AI Engineer based in India. The site combines an original masked-vigilante/comic-book visual direction with semantic HTML, keyboard navigation, responsive layouts, and reduced-motion support.
+A menu-driven portfolio for Shikhar Sharma, an AI Engineer based in India. The site pairs an original, comic-book-inspired command-center aesthetic with the fundamentals that keep it usable: semantic HTML, full keyboard navigation, responsive layouts, and reduced-motion support.
+
+Live at **[b1uxo.vercel.app](https://b1uxo.vercel.app)**.
 
 ## Stack
 
-- React and TypeScript
-- Vite and React Router
-- Vitest with Testing Library/JSDOM dependencies
-- CSS tokens and component-level styles
+- **React** + **TypeScript** — component-driven UI, fully typed
+- **Vite** + **React Router** — fast builds and client-side routing
+- **Vitest** with Testing Library and jsdom — unit and interaction tests
+- **CSS custom properties** — a token layer (`tokens.css`) drives every color, font, and accent
 
 ## Run locally
 
@@ -21,35 +23,42 @@ npm run dev
 Available scripts:
 
 ```bash
-npm run lint    # TypeScript validation
-npm run test    # Vitest suite
-npm run build   # Production build
-npm run preview # Serve the production build locally
+npm run dev      # Start the Vite dev server
+npm run lint     # TypeScript type-check (tsc -b)
+npm run test     # Vitest suite
+npm run build    # Production build
+npm run preview  # Serve the production build locally
 ```
+
+## Deployment
+
+The site deploys to Vercel from the `main` branch. Because routing is client-side (`BrowserRouter`), `vercel.json` rewrites every path to `index.html` so deep links like `/projects` resolve on direct visits and refreshes.
 
 ## Routes
 
-- `/` — home screen and primary menu
-- `/projects` — featured projects
-- `/projects/:slug` — project case file
-- `/skills` — grouped skills
-- `/about` — profile and working approach
-- `/resume` — credentials summary and CV request CTA
-- `/contact` — email contact
-- `/socials` — external links
+| Route | Screen |
+| --- | --- |
+| `/` | Home screen and primary menu |
+| `/projects` | Featured projects |
+| `/projects/:slug` | Project case file |
+| `/skills` | Grouped skills |
+| `/about` | Profile and working approach |
+| `/resume` | Credentials summary and CV request |
+| `/contact` | Email contact |
+| `/socials` | External links |
 
 Unknown paths render the built-in 404 screen.
 
 ## Content model
 
-Portfolio content is kept in typed modules under `src/data/`:
+Portfolio content lives in typed modules under `src/data/`, kept separate from presentation so copy can change without touching components:
 
 - `site.ts` — identity, biography, contact, and social links
 - `projects.ts` — project summaries, case-study details, stacks, and source links
 - `skills.ts` — grouped skills
 - `experience.ts` — experience structure and owner-supplied placeholders
 
-Project descriptions and metrics must be based on the linked source repositories. Do not invent employers, education, achievements, metrics, or project details. Replace placeholders only with verified information supplied by the owner.
+> Project descriptions and metrics must be grounded in the linked source repositories. Do not invent employers, education, achievements, metrics, or project details. Replace placeholders only with verified information supplied by the owner.
 
 ## Project structure
 
@@ -64,7 +73,12 @@ Project descriptions and metrics must be based on the linked source repositories
 
 ## Interface behavior
 
-The interface includes visible focus states, keyboard-accessible menu navigation, responsive mobile navigation, reduced-motion handling, a custom cursor for fine pointers, and an optional select sound that is off by default.
+- Visible focus states and full keyboard menu navigation (arrow keys move the selection, Enter opens a route)
+- Responsive mobile navigation
+- Reduced-motion handling that disables entrance and hover animations
+- Staggered entrance animations and hover glides across content screens
+- A custom animated cursor for fine pointers, with its hotspot aligned to the pointer
+- An optional interface select sound, off by default
 
 ## Assets and rights
 
@@ -74,7 +88,7 @@ Keep generated files, temporary captures, and unlicensed font binaries out of co
 
 ## Documentation
 
-The implementation specifications are in `docs/`:
+Implementation specifications live in `docs/`:
 
 - `prd.md` — product requirements
 - `trd.md` — technical requirements
