@@ -35,6 +35,30 @@ export const projects: Project[] = [
     problem: 'LLMs hallucinate — they surface fabricated or unsupported claims with the same confidence as grounded ones, and standard RAG still lets invented citations through to the user.',
     solution: 'A pipeline that chunks and embeds documents into a vector store, then at query time retrieves context, generates answers with inline citations, verifies each citation as a hard gate, scores confidence, and routes to answer, flag, or web fallback. Fabricated citations are blocked before the UI, thresholds and budget caps are configurable, and every routing decision is logged.',
     contribution: 'Author and maintainer of the full stack — ingestion, retrieval, the verification gate, confidence routing, the FastAPI backend, React frontend, and the golden-set eval harness run in CI.',
-    stack: ['Python', 'FastAPI', 'Postgres', 'Chroma', 'React', 'Vite', 'Docker', 'RAGAS'], result: 'Project-reported eval on a 30-pair golden set: citation precision 1.000 (24/24) against a ≥0.95 target, unsupported-claim escape rate 0, and a 0.200 web-fallback rate; RAGAS faithfulness and relevancy targets are gated behind live-LLM runs.', status: 'Phase 4 in progress', url: 'https://github.com/bluxo1/Axiom-RAG', featured: true, accent: '#2dd4bf'
+    stack: ['Python', 'FastAPI', 'Postgres', 'Chroma', 'React', 'Vite', 'Docker', 'RAGAS'], result: 'Project-reported eval on a 30-pair golden set: citation precision 1.000 (24/24) against a ≥0.95 target, unsupported-claim escape rate 0, and a 0.200 web-fallback rate; RAGAS faithfulness and relevancy targets are gated behind live-LLM runs.', status: 'Complete', url: 'https://github.com/bluxo1/Axiom-RAG', featured: true, accent: '#2dd4bf'
+  },
+  {
+    slug: 'kimi-discord-rich-presence', name: 'Kimi Desktop Discord Presence', category: 'Tooling / desktop integration',
+    summary: 'A background client that surfaces your Kimi Desktop session in Discord Rich Presence — current project, git branch, model, session duration, and quota usage — without touching credentials or modifying Kimi.',
+    problem: 'Show live Kimi Desktop activity on Discord without a bot token, credential access, or intercepting network traffic.',
+    solution: "Reads structured events from Kimi Desktop's own Electron log and talks only to Discord's local IPC pipe. Whitelist-based parsing drops prompt text and identifiers, and the git branch comes from reading .git/HEAD directly rather than shelling out.",
+    contribution: 'Author of the client, its YAML config layer, windowless Windows autostart and packaging, a --doctor diagnostic mode, and privacy tests.',
+    stack: ['Python', 'psutil', 'YAML', 'PyInstaller', 'pytest'], result: 'MIT-licensed and Windows-focused. Quota is shown as the consumed share (omniRatio) — a snapshot, since Kimi does not write per-message token counts locally.', status: 'MIT licensed', url: 'https://github.com/bluxo1/Kimi-Discord-Rich-Presence-For-kimi-desktop', featured: false, accent: '#f59e0b'
+  },
+  {
+    slug: 'rpc-for-unity-hub', name: 'Discord Presence for Unity Hub', category: 'Tooling / desktop integration',
+    summary: 'A Discord Rich Presence daemon that shows which Unity project you have open, the Unity version, and elapsed session time — no editor plugin, bot token, or project upload required.',
+    problem: 'Surface current Unity work in Discord without a Unity Editor plugin, a Discord bot token, or uploading project contents.',
+    solution: 'Detects the running editor by scanning the process table for a Unity process launched with -projectPath, maps it to a Discord activity, and communicates over Discord\'s local IPC. Handles idle states, config hot reload, and Discord\'s field limits.',
+    contribution: 'Author of the TypeScript daemon, config validation and hot reload, a system tray, the Windows startup task, and the standalone executable plus Inno Setup release pipeline.',
+    stack: ['TypeScript', 'Node.js', 'Vitest', 'Inno Setup'], result: 'MIT-licensed. Core detection and presence mapping ship as a packaged Windows executable; active-scene reporting and macOS/Linux packaging are noted as not yet done.', status: 'MIT licensed', url: 'https://github.com/bluxo1/RPC-for-Unity-Hub', featured: false, accent: '#38bdf8'
+  },
+  {
+    slug: 'bluxo-portfolio', name: 'This Portfolio', category: 'Web / personal site',
+    summary: 'The site you are on — a menu-driven, command-center portfolio with an original comic-book aesthetic, full keyboard navigation, a custom cursor, and reduced-motion support.',
+    problem: 'Present the work as a memorable, interactive experience without sacrificing accessibility, performance, or clarity.',
+    solution: 'A React and TypeScript single-page app with client-side routing, a CSS token system driving the whole visual identity, animated route transitions, and typed content modules kept separate from presentation.',
+    contribution: 'Sole author — design, build, content model, animation, and Vercel deployment.',
+    stack: ['React', 'TypeScript', 'Vite', 'React Router', 'CSS'], result: 'Deployed on Vercel with Speed Insights and Web Analytics. Static-first, with content in typed data modules.', status: 'Live', url: 'https://github.com/bluxo1/Bluxo-Portfolio', featured: false, accent: '#22c55e'
   }
 ]
