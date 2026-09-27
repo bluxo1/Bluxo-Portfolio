@@ -9,8 +9,8 @@ export function ProjectsScreen() {
   const featured = projects.filter((project) => project.featured)
   const minor = projects.filter((project) => !project.featured)
   return (
-    <ScreenShell title="Selected work" eyebrow="02 / portfolio">
-      <p className="lede">Featured work in public repositories — a prompt evaluation framework, a machine-learning intrusion detection system, and a citation-grounded RAG agent. Each has a case file with the problem, the solution, and what the source reports. Smaller tools and integrations follow below.</p>
+    <ScreenShell title="Selected Work" eyebrow="02 / portfolio" className="projects-screen">
+      <p className="lede">Case files cover prompt regression testing, intrusion detection, citation-grounded RAG, and a multi-tenant LLM control plane. Each explains the problem, approach, and what the source reports. Additional tools and integrations follow below.</p>
       <div className="project-grid">{featured.map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
       {minor.length > 0 && (
         <>
