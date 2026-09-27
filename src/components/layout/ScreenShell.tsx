@@ -11,7 +11,7 @@ const screenBg: Record<string, string> = {
   '/skills': skillsBg,
 }
 
-export function ScreenShell({ title, eyebrow, children, back = true, backTo = '/' }: { title: string; eyebrow: string; children: ReactNode; back?: boolean; backTo?: string }) {
+export function ScreenShell({ title, eyebrow, children, back = true, backTo = '/', className }: { title: string; eyebrow: string; children: ReactNode; back?: boolean; backTo?: string; className?: string }) {
   const heading = useRef<HTMLHeadingElement>(null)
   const navigate = useNavigate()
   const location = useLocation()
@@ -21,7 +21,7 @@ export function ScreenShell({ title, eyebrow, children, back = true, backTo = '/
     <div className="app-frame">
       <BgLayers image={bg} />
       <Hud />
-      <main id="main-content" className="screen-content">
+      <main id="main-content" className={`screen-content${className ? ` ${className}` : ''}`}>
         {back && <button className="back-button" onClick={() => navigate(backTo)} aria-label="Go back">← back</button>}
         <p className="eyebrow">{eyebrow}</p>
         <h1 ref={heading} tabIndex={-1}>{title}</h1>

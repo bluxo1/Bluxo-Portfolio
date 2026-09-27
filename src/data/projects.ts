@@ -54,6 +54,16 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Node.js', 'Vitest', 'Inno Setup'], result: 'MIT-licensed. Core detection and presence mapping ship as a packaged Windows executable; active-scene reporting and macOS/Linux packaging are noted as not yet done.', status: 'MIT licensed', url: 'https://github.com/bluxo1/RPC-for-Unity-Hub', featured: false, accent: '#38bdf8'
   },
   {
+    slug: 'arbiter', name: 'Arbiter', category: 'Backend / LLM infrastructure',
+    summary: 'A multi-tenant LLM control plane for tenant isolation, audited administration, and policy-approved model catalogs. Inference stays unavailable while required security gates are still in progress.',
+    problem: 'Build a tenant-scoped foundation for governed LLM access, with auditable administration and explicit model approval before inference is enabled.',
+    solution: 'Provides authenticated tenant audit reads, admin API-key creation/listing/revocation, and tenant-approved model catalogs. The README documents PostgreSQL, Redis, Ollama, and a separately provisioned Keycloak issuer; readiness remains closed until the required gates are complete.',
+    contribution: 'Author and maintainer of the API foundation, tenant security boundaries, audit and key administration, policy-controlled model catalog, and local deployment workflow.',
+    stack: ['Python', 'PostgreSQL', 'Redis', 'Ollama', 'Docker Compose', 'Keycloak'],
+    result: 'The repository reports Phase 1 and bounded Phase 2 capabilities. Inference, usage, and request-metadata endpoints remain unavailable, and readiness returns 503 until the remaining security gates are implemented.',
+    status: 'In progress', url: 'https://github.com/bluxo1/Arbiter', featured: true, accent: '#fb7185'
+  },
+  {
     slug: 'bluxo-portfolio', name: 'This Portfolio', category: 'Web / personal site',
     summary: 'The site you are on — a menu-driven, command-center portfolio with an original comic-book aesthetic, full keyboard navigation, a custom cursor, and reduced-motion support.',
     problem: 'Present the work as a memorable, interactive experience without sacrificing accessibility, performance, or clarity.',
