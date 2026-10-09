@@ -59,7 +59,7 @@ export function MainMenu() {
   }, [selected])
 
   /* Arrow keys drive selection from anywhere on the home screen; Enter opens the
-     active route. Once a row itself has focus, its own activation handles Enter. */
+     active route. Focused links and buttons keep their native activation. */
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
@@ -73,7 +73,7 @@ export function MainMenu() {
         playSelect()
       } else if (event.key === 'Enter') {
         const active = document.activeElement
-        if (active && refs.current.includes(active as HTMLAnchorElement)) return
+        if (active instanceof HTMLElement && active.closest('a, button, input, select, textarea, [contenteditable]')) return
         event.preventDefault()
         playSelect()
         navigate(menuItems[selected].path)

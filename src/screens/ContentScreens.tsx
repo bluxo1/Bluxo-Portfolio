@@ -10,7 +10,7 @@ export function ProjectsScreen() {
   const minor = projects.filter((project) => !project.featured)
   return (
     <ScreenShell title="Selected Work" eyebrow="02 / portfolio" className="projects-screen">
-      <p className="lede">Case files cover prompt regression testing, intrusion detection, citation-grounded RAG, and a multi-tenant LLM control plane. Each explains the problem, approach, and what the source reports. Additional tools and integrations follow below.</p>
+      <p className="lede">Governed local AI execution, prompt regression testing, intrusion detection, and citation-grounded RAG. Each case file explains the problem, implementation, release evidence, and scope. Additional tools and integrations follow below.</p>
       <div className="project-grid">{featured.map((project) => <ProjectCard project={project} key={project.slug} />)}</div>
       {minor.length > 0 && (
         <>
@@ -22,11 +22,56 @@ export function ProjectsScreen() {
   )
 }
 
-export function ProjectDetailScreen() { const { slug } = useParams(); const project = projects.find((item) => item.slug === slug); if (!project) return <ScreenShell title="File not found" eyebrow="404"><p className="lede">That project record does not exist.</p><Link className="button-link" to="/projects">Return to projects</Link></ScreenShell>; return <ScreenShell title={project.name} eyebrow={`${project.category} / case file`} backTo="/projects"><div className="detail-grid"><section className="detail-lead"><div className="project-art large" aria-hidden="true"><span className="art-code">CASE</span><span className="art-shape" /></div><p className="lede">{project.summary}</p><p className="result-callout"><span>RESULT</span>{project.result}</p><a className="button-link" href={project.url} target="_blank" rel="noreferrer">View source / demo ↗</a></section><dl className="detail-facts"><div><dt>Problem</dt><dd>{project.problem}</dd></div><div><dt>Solution</dt><dd>{project.solution}</dd></div><div><dt>Contribution</dt><dd>{project.contribution}</dd></div><div><dt>Stack</dt><dd>{project.stack.join(' · ')}</dd></div></dl></div></ScreenShell> }
+export function ProjectDetailScreen() {
+  const { slug } = useParams()
+  const project = projects.find((item) => item.slug === slug)
+  if (!project) return <ScreenShell title="File not found" eyebrow="404"><p className="lede">That project record does not exist.</p><Link className="button-link" to="/projects">Return to projects</Link></ScreenShell>
+
+  return (
+    <ScreenShell title={project.name} eyebrow={`${project.category} / case file`} backTo="/projects">
+      <div className="detail-grid">
+        <section className="detail-lead">
+          <div className="project-art large" aria-hidden="true"><span className="art-code">CASE</span><span className="art-shape" /></div>
+          <p className="lede">{project.summary}</p>
+          <p className="result-callout"><span>RESULT</span>{project.result}</p>
+          <div className="project-links">
+            <a className="button-link" href={project.url} target="_blank" rel="noreferrer">View source ↗</a>
+            {project.links?.map((link) => <a className="button-link" href={link.url} target="_blank" rel="noreferrer" key={link.url}>{link.label} ↗</a>)}
+          </div>
+        </section>
+        <dl className="detail-facts">
+          <div><dt>Problem</dt><dd>{project.problem}</dd></div>
+          <div><dt>Solution</dt><dd>{project.solution}</dd></div>
+          <div><dt>Contribution</dt><dd>{project.contribution}</dd></div>
+          <div><dt>Stack</dt><dd>{project.stack.join(' · ')}</dd></div>
+          {project.limitations && <div><dt>Scope & limitations</dt><dd>{project.limitations}</dd></div>}
+        </dl>
+      </div>
+    </ScreenShell>
+  )
+}
 
 export function SkillsScreen() { return <ScreenShell title="The toolkit" eyebrow="03 / capabilities"><p className="lede">A living map of the practices, tools, and conversations that shape the work.</p><div className="skill-stack">{skillGroups.map((group) => <section className="skill-block" key={group.title}><h2 className="skill-block-title">{group.title}</h2><div className="chip-row">{group.skills.map((skill) => <span className="chip" key={skill}>{skill}</span>)}</div></section>)}</div></ScreenShell> }
 
-export function AboutScreen() { return <ScreenShell title="Behind the mask" eyebrow="04 / profile"><div className="about-grid"><div><div className="portrait-fallback" aria-label="Original abstract portrait placeholder" role="img"><span>SS</span></div><p className="caption">Original abstract portrait placeholder</p></div><div className="about-copy"><p className="lede">{site.bio}</p><h2>Working signal</h2><ul className="profile-points">{site.aboutPoints.map((point) => <li key={point}>{point}</li>)}</ul></div></div></ScreenShell> }
+export function AboutScreen() {
+  return (
+    <ScreenShell title="Behind the mask" eyebrow="04 / profile">
+      <div className="about-grid">
+        <div><div className="portrait-fallback" aria-label="Original abstract portrait placeholder" role="img"><span>SS</span></div><p className="caption">Original abstract portrait placeholder</p></div>
+        <div className="about-copy">
+          <p className="lede">{site.bio}</p>
+          <h2>Working signal</h2>
+          <ul className="profile-points">{site.aboutPoints.map((point) => <li key={point}>{point}</li>)}</ul>
+          <section className="current-focus">
+            <h2>Current focus</h2>
+            <p>{site.currentFocus.detail}</p>
+            <Link className="text-link" to={`/projects/${site.currentFocus.projectSlug}`}>{site.currentFocus.label} ↗</Link>
+          </section>
+        </div>
+      </div>
+    </ScreenShell>
+  )
+}
 
 export function ResumeScreen() { return <ScreenShell title="Credentials" eyebrow="05 / resume"><div className="resume-panel"><div className="resume-stamp">CV</div><div><p className="lede">Background, toolkit, and shipped work, all in one place. Each group below is the same verified data that lives on the Skills and Projects screens.</p><div className="resume-groups">{skillGroups.map((group) => <div className="resume-group" key={group.title}><p className="eyebrow">{group.eyebrow}</p><h2>{group.title}</h2><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></div>)}</div><a className="button-link resume-cta" href={site.email}>Request the full CV ↗</a></div></div></ScreenShell> }
 

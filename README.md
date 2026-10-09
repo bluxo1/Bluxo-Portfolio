@@ -33,7 +33,7 @@ npm run preview  # Serve the production build locally
 
 ## Deployment
 
-The site deploys to Vercel from the `main` branch. Because routing is client-side (`BrowserRouter`), `vercel.json` rewrites every path to `index.html` so deep links like `/projects` resolve on direct visits and refreshes.
+The site deploys to Vercel from its connected Git branch. Because routing is client-side (`BrowserRouter`), `vercel.json` rewrites every path to `index.html` so deep links like `/projects` resolve on direct visits and refreshes.
 
 ## Routes
 
@@ -54,12 +54,14 @@ Unknown paths render the built-in 404 screen.
 
 Portfolio content lives in typed modules under `src/data/`, kept separate from presentation so copy can change without touching components:
 
-- `site.ts` — identity, biography, contact, and social links
-- `projects.ts` — project summaries, case-study details, stacks, and source links
+- `site.ts` — identity, biography, current focus, contact, and social links
+- `projects.ts` — project summaries, case-study details, stacks, source and evidence links, and scope limitations
 - `skills.ts` — grouped skills
 - `experience.ts` — experience structure and owner-supplied placeholders
 
-The work currently spans three featured builds — [Regressa](https://github.com/bluxo1/Regressa) (prompt evaluation and regression testing), an [ML network intrusion detection system](https://github.com/bluxo1/Network-Intrusion-Detection-System), and [Axiom-RAG](https://github.com/bluxo1/Axiom-RAG) (a citation-grounded RAG agent) — alongside smaller desktop-integration tools and this site itself.
+The work currently spans four featured builds — [Arbiter](https://github.com/bluxo1/Arbiter) (governed local AI execution), [Regressa](https://github.com/bluxo1/Regressa) (prompt evaluation and regression testing), an [ML network intrusion detection system](https://github.com/bluxo1/Network-Intrusion-Detection-System), and [Axiom-RAG](https://github.com/bluxo1/Axiom-RAG) (a citation-grounded RAG agent) — alongside smaller desktop-integration tools and this site itself.
+
+Content reviewed against the public repositories on October 9, 2026. Arbiter's [v0.1.0 release](https://github.com/bluxo1/Arbiter/releases/tag/v0.1.0) reports 1,308 passing regression tests and verification with real dependencies. Its case file records the single-host scope and recovery limitations. The intrusion-detection case file reflects the current 80.0% KDDTest+ multi-class accuracy and research-demo scope. Axiom-RAG's displayed metrics come from deterministic offline evaluation; live-model RAGAS reports remain pending.
 
 > Project descriptions and metrics must be grounded in the linked source repositories. Do not invent employers, education, achievements, metrics, or project details. Replace placeholders only with verified information supplied by the owner.
 
