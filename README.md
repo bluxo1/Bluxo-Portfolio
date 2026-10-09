@@ -1,112 +1,155 @@
 # Shikhar Sharma — Portfolio
 
-A menu-driven portfolio for Shikhar Sharma, an AI Engineer based in India. The site pairs an original, comic-book-inspired command-center aesthetic with the fundamentals that keep it usable: semantic HTML, full keyboard navigation, responsive layouts, and reduced-motion support.
+A personal portfolio for Shikhar Sharma, an AI Engineer based in India, showcasing work in local AI infrastructure, prompt evaluation, retrieval, and machine learning. A red-and-black comic-book interface brings together project case files, skills, background, and contact details in a navigable command center.
 
-Live at **[b1uxo.vercel.app](https://b1uxo.vercel.app)**.
+**[Visit the portfolio](https://b1uxo.vercel.app)** · [Explore projects](https://b1uxo.vercel.app/projects) · [Get in touch](https://b1uxo.vercel.app/contact)
+
+[Run locally](#run-locally) · [Update content](#update-content) · [Deployment](#deployment) · [Documentation](#documentation)
+
+## Selected work
+
+| Project | Focus | Evidence or demo |
+| --- | --- | --- |
+| [Arbiter](https://github.com/bluxo1/Arbiter) | Tenant access, resource policy, accounting, and recovery for shared local AI execution | [v0.1.0 release](https://github.com/bluxo1/Arbiter/releases/tag/v0.1.0) |
+| [Regressa](https://github.com/bluxo1/Regressa) | Prompt evaluation, baseline comparisons, and regression checks for CI | [Sample evaluation report](https://bluxo1.github.io/Regressa/report.html) |
+| [Network Intrusion Detection System](https://github.com/bluxo1/Network-Intrusion-Detection-System) | A PyTorch and Flask research demo for classifying NSL-KDD records | [Evaluation metrics](https://github.com/bluxo1/Network-Intrusion-Detection-System/blob/main/reports/metrics.json) |
+| [Axiom-RAG](https://github.com/bluxo1/Axiom-RAG) | Citation verification, confidence routing, and web-search fallback | [Open app](https://axiom-rag.vercel.app) |
+
+Additional work includes [Kimi Desktop Discord Presence](https://github.com/bluxo1/Kimi-Discord-Rich-Presence-For-kimi-desktop), [Discord Presence for Unity Hub](https://github.com/bluxo1/RPC-for-Unity-Hub), and this portfolio.
+
+Project content was reviewed against the public repositories on **October 9, 2026**. Results are reported by those projects, with their evaluation conditions and limitations preserved in the case files:
+
+- **Arbiter:** the signed v0.1.0 release reports 1,308 passing regression tests and verification with real PostgreSQL, Redis, and Ollama. Its supported scope is one host and one API worker.
+- **Intrusion detection:** reports 99.6% held-out validation accuracy and 80.0% multi-class accuracy on KDDTest+. The model is a research demo; its test results include a substantial generalization gap for R2L attacks.
+- **Axiom-RAG:** displayed metrics come from deterministic offline evaluation. Live-model RAGAS faithfulness and answer-relevancy reports remain pending.
+
+## Interface
+
+- Arrow keys select home-menu entries; Enter opens the selected destination. Focused links and buttons retain their native keyboard behavior.
+- A skip link, visible focus states, route-heading focus, and mobile navigation keep the content accessible through conventional controls.
+- Route wipes, card entrances, and a custom cursor provide motion while respecting `prefers-reduced-motion`.
+- Interface sound starts muted. The sound toggle saves the preference in local storage and works with pointer or keyboard input.
+- Project pages link to source repositories, release evidence, and demos where available.
 
 ## Stack
 
-- **React** + **TypeScript** — component-driven UI, fully typed
-- **Vite** + **React Router** — fast builds and client-side routing
-- **Vitest** with Testing Library and jsdom — unit and interaction tests
-- **CSS custom properties** — a token layer (`tokens.css`) drives every color, font, and accent
-- **Vercel Analytics** + **Speed Insights** — privacy-light traffic and performance metrics in production
+- **React + TypeScript:** components and typed content models.
+- **Vite + React Router:** local development, production builds, and client-side routes.
+- **CSS custom properties:** shared colors, typography, spacing, and motion tokens.
+- **Vitest:** automated checks for the primary route mapping.
+- **Vercel Analytics + Speed Insights:** traffic and performance instrumentation on Vercel.
 
 ## Run locally
 
-Requirements: Node.js LTS and npm.
+Use **Node.js 24.x** and npm. Install the dependency versions recorded in [package-lock.json](package-lock.json):
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Available scripts:
+Open the local URL printed by Vite. Local development requires no application API credentials or environment file.
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run lint` | Run TypeScript build checks with `tsc -b --pretty false` |
+| `npm run test` | Run the Vitest suite |
+| `npm run build` | Type-check and generate the production site in `dist/` |
+| `npm run preview` | Serve the existing production build locally |
+
+Before shipping a change, run:
 
 ```bash
-npm run dev      # Start the Vite dev server
-npm run lint     # TypeScript type-check (tsc -b)
-npm run test     # Vitest suite
-npm run build    # Production build
-npm run preview  # Serve the production build locally
+npm run lint
+npm run test
+npm run build
+npm run preview
 ```
 
-## Deployment
+The checked-in test suite currently covers route mapping. For interface changes, also inspect the production preview at desktop and mobile widths, navigate with the keyboard, enable reduced motion, and check both sound settings.
 
-The site deploys to Vercel from its connected Git branch. Because routing is client-side (`BrowserRouter`), `vercel.json` rewrites every path to `index.html` so deep links like `/projects` resolve on direct visits and refreshes.
+## Update content
+
+Content lives in typed modules, so routine copy updates do not require component changes.
+
+| File | What to edit |
+| --- | --- |
+| [src/data/site.ts](src/data/site.ts) | Name, role, biography, current focus, contact details, and social links |
+| [src/data/projects.ts](src/data/projects.ts) | Project summaries, case studies, stacks, results, source links, supporting links, and limitations |
+| [src/data/skills.ts](src/data/skills.ts) | Skill groups shared by the Skills and Resume screens |
+
+To add a project:
+
+1. Review its source repository and record the implemented behavior, reported results, and limitations.
+2. Copy an existing entry in `src/data/projects.ts`, give it a unique `slug`, and fill in the required fields. Set `featured` to choose between Selected Work and More Work; use optional `links` and `limitations` for supporting evidence and scope.
+3. Check the card and `/projects/<slug>` page, then run the validation commands above.
+
+Keep personal claims and project metrics grounded in owner-supplied information or source evidence. Do not invent employers, education, achievements, or results.
+
+Visual settings live in [src/styles/tokens.css](src/styles/tokens.css), with layout and interaction styles in [src/styles/globals.css](src/styles/globals.css). Shared media imports are defined in [src/lib/assets.ts](src/lib/assets.ts).
 
 ## Routes
 
 | Route | Screen |
 | --- | --- |
-| `/` | Home screen and primary menu |
-| `/projects` | Featured work, with secondary tools below |
+| `/` | Identity and primary menu |
+| `/projects` | Featured projects and additional work |
 | `/projects/:slug` | Project case file |
-| `/skills` | Grouped skills |
-| `/about` | Profile and working approach |
-| `/resume` | Credentials summary and CV request |
+| `/skills` | Grouped capabilities |
+| `/about` | Background, working approach, and current focus |
+| `/resume` | Skills summary and CV request |
 | `/contact` | Email contact |
-| `/socials` | External links |
+| `/socials` | Professional and social links |
 
-Unknown paths render the built-in 404 screen.
+Unknown routes and project slugs render dedicated not-found screens.
 
-## Content model
+## Deployment
 
-Portfolio content lives in typed modules under `src/data/`, kept separate from presentation so copy can change without touching components:
+The site is a static React application deployed to Vercel from its connected Git branch:
 
-- `site.ts` — identity, biography, current focus, contact, and social links
-- `projects.ts` — project summaries, case-study details, stacks, source and evidence links, and scope limitations
-- `skills.ts` — grouped skills
-- `experience.ts` — experience structure and owner-supplied placeholders
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **SPA routing:** [vercel.json](vercel.json) rewrites application paths to `/index.html`, allowing direct visits and refreshes on routes such as `/projects/arbiter`.
 
-The work currently spans four featured builds — [Arbiter](https://github.com/bluxo1/Arbiter) (governed local AI execution), [Regressa](https://github.com/bluxo1/Regressa) (prompt evaluation and regression testing), an [ML network intrusion detection system](https://github.com/bluxo1/Network-Intrusion-Detection-System), and [Axiom-RAG](https://github.com/bluxo1/Axiom-RAG) (a citation-grounded RAG agent) — alongside smaller desktop-integration tools and this site itself.
+Other static hosts need an equivalent SPA fallback. Run a production build before using `npm run preview`.
 
-Content reviewed against the public repositories on October 9, 2026. Arbiter's [v0.1.0 release](https://github.com/bluxo1/Arbiter/releases/tag/v0.1.0) reports 1,308 passing regression tests and verification with real dependencies. Its case file records the single-host scope and recovery limitations. The intrusion-detection case file reflects the current 80.0% KDDTest+ multi-class accuracy and research-demo scope. Axiom-RAG's displayed metrics come from deterministic offline evaluation; live-model RAGAS reports remain pending.
+Vercel's analytics and speed-insights scripts are served by the hosting platform. A local production preview can return 404 responses for `/_vercel/` requests; these endpoints are available on Vercel.
 
-> Project descriptions and metrics must be grounded in the linked source repositories. Do not invent employers, education, achievements, metrics, or project details. Replace placeholders only with verified information supplied by the owner.
+## Repository layout
 
-## Project structure
-
-- `src/components/` — shared shell, navigation, chrome, content, and motion components
-- `src/screens/` — route-level screens
-- `src/hooks/` — reduced-motion, cursor, and sound-preference hooks
-- `src/lib/` — assets and route utilities
-- `src/styles/` — design tokens and global styles
-- `assets/` — local source media
-- `public/` — static files served as-is
-- `docs/` — product, technical, architecture, design, and phase documentation
-
-## Interface behavior
-
-- Visible focus states and full keyboard menu navigation (arrow keys move the selection, Enter opens a route)
-- Responsive mobile navigation
-- Reduced-motion handling that disables entrance and hover animations
-- Staggered entrance animations and hover glides across content screens
-- A custom animated cursor for fine pointers, with its hotspot aligned to the pointer
-- An optional interface select sound, off by default
-
-## Assets and rights
-
-The visual direction is original and is not affiliated with ATLUS, SEGA, or Persona 5 Royal. Do not add or deploy official game artwork, characters, logos, music, sound effects, or fonts without documented permission. Use original or properly licensed replacements and record provenance before adding assets.
-
-Keep generated files, temporary captures, and unlicensed font binaries out of commits.
+```text
+src/
+  components/   Shared chrome, layout, content, and motion
+  data/         Typed portfolio content
+  hooks/        Motion, cursor, and sound behavior
+  lib/          Asset imports and route definitions
+  screens/      Route-level views
+  styles/       Design tokens and global styles
+assets/         Imported images, cursors, and sound
+public/         Files served as-is
+docs/           Product, technical, and design specifications
+```
 
 ## Documentation
 
-Implementation specifications live in `docs/`:
+Read the specifications and repository instructions before making implementation changes:
 
-- `prd.md` — product requirements
-- `trd.md` — technical requirements
-- `architecture.md` — application architecture
-- `design.md` — visual and interaction system
-- `phases.md` — implementation sequence
-- `AGENTS.md` — repository instructions
+- [Product requirements](docs/prd.md)
+- [Technical requirements](docs/trd.md)
+- [Architecture](docs/architecture.md)
+- [Design and interaction system](docs/design.md)
+- [Implementation phases](docs/phases.md)
+- [Agent instructions](docs/AGENTS.md)
 
-Read the specifications and `docs/AGENTS.md` before making implementation changes.
+## Current scope
 
-## Current limitations
+The resume screen provides a skills summary and an email link to request the full CV; a downloadable PDF has not been added. Contact uses `mailto:`. Project content is maintained in local typed modules.
 
-- The resume screen provides a verified skills summary and email CTA until an owner-supplied PDF is available.
-- Contact uses a `mailto:` fallback rather than a server-backed form.
-- Experience data still contains owner-supplied placeholders.
-- The site is static-first and does not fetch remote repository data at runtime.
+[src/data/experience.ts](src/data/experience.ts) is reserved scaffolding with placeholders and is not currently rendered. Add verified background information before connecting it to a screen.
+
+## Assets and rights
+
+This project is unofficial and is not affiliated with or endorsed by ATLUS, SEGA, or Persona 5 Royal. Use original or properly licensed assets and record their source and usage rights before adding them. Official game artwork, characters, logos, music, sound effects, and fonts require documented permission suitable for deployment.
+
+Keep build output, temporary captures, and unlicensed font binaries out of commits.
