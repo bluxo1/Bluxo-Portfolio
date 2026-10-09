@@ -4,6 +4,7 @@ import { selectSfx } from '../lib/assets'
 export function useSelectSound(): () => void {
   const audio = useRef<HTMLAudioElement | null>(null)
   return useCallback(() => {
+    if (localStorage.getItem('sound-enabled') !== 'true') return
     if (!audio.current) audio.current = new Audio(selectSfx)
     audio.current.currentTime = 0
     const p = audio.current.play()

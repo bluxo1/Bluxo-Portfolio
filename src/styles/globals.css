@@ -350,6 +350,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; font-style: nor
 .detail-facts { margin: 0; }
 .detail-facts div { border-top: 1px solid var(--line); padding: 18px 0; }
 .detail-facts dd { margin: 7px 0 0; }
+.project-links { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px 24px; }
+.current-focus { margin-top: 36px; }
 .portrait-fallback { aspect-ratio: 1; max-width: 400px; display: grid; place-items: center; background: repeating-linear-gradient(135deg, transparent 0 18px, rgba(230,0,18,.4) 19px 20px), linear-gradient(140deg, var(--accent), #600, var(--ink)); font: 400 6.4rem var(--font-display); color: rgba(255,255,255,.4); }
 .caption { margin-top: 12px; }
 .about-copy h2 { font-size: 2rem; margin-top: 0; }
