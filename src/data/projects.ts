@@ -66,6 +66,22 @@ export const projects: Project[] = [
     featured: true, accent: '#2dd4bf'
   },
   {
+    slug: 'daily-motion', name: 'Daily Motion', category: 'Featured / mobile product',
+    summary: 'A strength and hypertrophy training app for iOS and Android. Its Phase 0 foundation connects a Flutter logging prototype to durable Drift/SQLite storage and a FastAPI/PostgreSQL sync service, with Supabase email OTP for verified sign-in. It is still in development, not a public MVP.',
+    problem: 'Training logs need to remain dependable offline while syncing safely across verified accounts. Restarts, expired sessions, and account switches must not lose local workouts or mix one account’s data with another.',
+    solution: 'A Flutter and Riverpod client stores workouts locally with Drift/SQLite, then synchronizes through FastAPI/PostgreSQL. Supabase email OTP and protected session persistence connect account identity to the local-first path; offline training stays available if cloud credentials expire.',
+    contribution: 'Developing the Flutter app and FastAPI/PostgreSQL backend, including verified authentication, durable synchronization and recovery, and the qualification work that tracks remaining release gates.',
+    stack: ['Flutter', 'Dart', 'Riverpod', 'Drift', 'SQLite', 'FastAPI', 'PostgreSQL', 'Supabase'],
+    result: 'Phase 0 is in progress. The repository documents local logging, verified sign-in, foreground synchronization, and recovery paths. Phase 1 has not started.',
+    limitations: 'This is not a public MVP. Physical-device iOS/Android performance, native secure storage, public onboarding, and release qualification remain open.',
+    status: 'Phase 0 in progress', url: 'https://github.com/bluxo1/Daily-Motion',
+    links: [
+      { label: 'Implementation evidence', url: 'https://github.com/bluxo1/Daily-Motion/blob/main/docs/IMPLEMENTATION.md' },
+      { label: 'Repository README', url: 'https://github.com/bluxo1/Daily-Motion#readme' }
+    ],
+    featured: true, accent: '#e9a45f'
+  },
+  {
     slug: 'kimi-discord-rich-presence', name: 'Kimi Desktop Discord Presence', category: 'Tooling / desktop integration',
     summary: 'A background client that surfaces your Kimi Desktop session in Discord Rich Presence — current project, git branch, model, session duration, and quota usage — without touching credentials or modifying Kimi.',
     problem: 'Show live Kimi Desktop activity on Discord without a bot token, credential access, or intercepting network traffic.',
