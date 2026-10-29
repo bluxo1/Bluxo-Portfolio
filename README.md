@@ -150,6 +150,6 @@ The resume screen provides a skills summary and an email link to request the ful
 
 ## Assets and rights
 
-This project is unofficial and is not affiliated with or endorsed by ATLUS, SEGA, or Persona 5 Royal. Use original or properly licensed assets and record their source and usage rights before adding them. Official game artwork, characters, logos, music, sound effects, and fonts require documented permission suitable for deployment.
+This project is unofficial and is not affiliated with or endorsed by ATLUS, SEGA, or Persona 5 Royal. Use original or properly licensed assets and record their source and usage rights before adding them. Official game artwork, characters, logos, music, sound effects, and fonts require documented permission suitable for deployment
 
 Keep build output, temporary captures, and unlicensed font binaries out of commits.
